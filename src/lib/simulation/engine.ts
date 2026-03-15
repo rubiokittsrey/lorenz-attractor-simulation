@@ -1,4 +1,4 @@
-import { calculateNextPoint, CircularBuffer } from './lorenz-utils';
+import { calculateNextPointEuler, calculateNextPointRKF45, CircularBuffer } from './lorenz-utils';
 import * as THREE from 'three';
 import { Point3D } from './types';
 import { useLorenzStore } from './store';
@@ -25,6 +25,9 @@ export function updateSimulation(
     stepsPerFrame: number = 1
 ): void {
     const state = useLorenzStore.getState();
+
+    const calculateNextPoint =
+        state.integrationMethod === 'rkf45' ? calculateNextPointRKF45 : calculateNextPointEuler;
 
     for (let i = 0; i < stepsPerFrame; i++) {
         const next = calculateNextPoint(currentPointRef.current, state.params);

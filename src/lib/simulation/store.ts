@@ -6,6 +6,7 @@ import {
     CameraPan,
     MaxPointsSelections,
     SpeedSelections,
+    IntegrationMethod,
 } from './types';
 import {
     initialCameraAngles,
@@ -90,11 +91,13 @@ interface Preferences {
     hideStats: boolean;
     hideCamInfo: boolean;
     maxPoints: MaxPointsSelections;
+    integrationMethod: IntegrationMethod;
 
     toggleAutoHideUI: () => void;
     toggleStats: () => void;
     toggleCamInfo: () => void;
     setMaxPoints: (points: MaxPointsSelections) => void;
+    setIntegrationMethod: (method: IntegrationMethod) => void;
     togglePanel: () => void;
 
     //misc
@@ -187,9 +190,11 @@ export const useLorenzStore = create<LorenzStore>((set, get) => ({
     autoHideUI: false,
     hideStats: true,
     maxPoints: defaultMaxPoints,
+    integrationMethod: 'euler',
     toggleAutoHideUI: () => set((state) => ({ autoHideUI: !state.autoHideUI })),
     toggleStats: () => set((state) => ({ hideStats: !state.hideStats })),
     setMaxPoints: (points) => set({ maxPoints: points }),
+    setIntegrationMethod: (method) => set({ integrationMethod: method }),
 
     speed: 1,
     setSpeed: (speed: SpeedSelections) => set({ speed }),

@@ -51,12 +51,12 @@ export function SimulationThreeCanvas() {
     const currentPointRef = useRef<Point3D>({ x: 0.1, y: 0, z: 0 });
 
     // store subs
-    const { maxPoints, pointerIdle, autoHideUI, hidePanel } = useLorenzStore();
+    const { maxPoints, integrationMethod, pointerIdle, autoHideUI, hidePanel } = useLorenzStore();
 
     const { handleMouseDown, handleMouseMove, handleMouseUp, handleWheel } = useCameraControls();
     const getFps = createFpsCounter();
 
-    // handles maxPoint updates
+    // handles maxPoint and integration method updates
     useEffect(() => {
         if (maxPoints === bufferRef.current.maxPoints) return;
 
@@ -88,6 +88,16 @@ export function SimulationThreeCanvas() {
             handleReset(bufferRef.current, lineRef.current, line2Ref.current, currentPointRef);
         }
     }, [maxPoints]);
+
+    // reset simulation when integration method changes
+    useEffect(() => {
+        if (!lineRef.current || !line2Ref.current) return;
+        handleReset(bufferRef.current, lineRef.current, line2Ref.current, currentPointRef);
+
+        const state = useLorenzStore.getState();
+        state.setCurrentPoint({ x: 0, y: 0, z: 0 });
+        state.clearPoints();
+    }, [integrationMethod]);
 
     // main three.js setup and animation
     useEffect(() => {

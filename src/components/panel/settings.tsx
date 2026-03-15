@@ -4,7 +4,7 @@ import { Switch } from '../ui/switch';
 import { useTheme } from 'next-themes';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/hover-card';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
-import { MaxPointsSelections } from '@/lib/simulation/types';
+import { IntegrationMethod, MaxPointsSelections } from '@/lib/simulation/types';
 import { maxPointsOptions } from '@/lib/simulation/constants';
 import { useLorenzStore } from '@/lib/simulation/store';
 
@@ -23,6 +23,7 @@ export default function Preferences() {
                 <ThemeSwitch />
             </div>
             <MaxPoints />
+            <IntegrationMethodSelector />
         </div>
     );
 }
@@ -120,6 +121,56 @@ export function MaxPoints() {
                             className="rounded data-[state=active]:dark:bg-primary data-[state=active]:dark:text-black cursor-pointer"
                         >
                             {points >= 1000 ? `${points / 1000}k` : points}
+                        </TabsTrigger>
+                    ))}
+                </TabsList>
+            </Tabs>
+        </div>
+    );
+}
+
+const integrationMethods: { value: IntegrationMethod; label: string }[] = [
+    { value: 'euler', label: "Euler's" },
+    { value: 'rkf45', label: 'RKF45' },
+];
+
+export function IntegrationMethodSelector() {
+    const { integrationMethod, setIntegrationMethod } = useLorenzStore();
+
+    return (
+        <div className="flex flex-col space-y-3">
+            <div className="flex flex-row space-x-3 items-center">
+                <p>Integration Method</p>
+                <HoverCard openDelay={0} closeDelay={0}>
+                    <HoverCardTrigger asChild>
+                        <CircleQuestionMarkIcon className="size-4" />
+                    </HoverCardTrigger>
+                    <HoverCardContent className="font-sans flex flex-col space-y-2">
+                        <p className="text-sm">Numerical Integration Method</p>
+                        <p className="text-xs opacity-50">
+                            Euler&apos;s method is fast but less accurate. RKF45
+                            (Runge-Kutta-Fehlberg) is more accurate at the cost of additional
+                            computation per step.
+                        </p>
+                        <p className="text-xs opacity-50 text-orange-400">
+                            Changing the integration method will reset the animation.
+                        </p>
+                    </HoverCardContent>
+                </HoverCard>
+            </div>
+            <Tabs
+                value={integrationMethod}
+                onValueChange={(v) => setIntegrationMethod(v as IntegrationMethod)}
+                className="w-full"
+            >
+                <TabsList className="grid grid-cols-2 w-full bg-input/50 p-0 rounded border h-8">
+                    {integrationMethods.map((method) => (
+                        <TabsTrigger
+                            key={method.value}
+                            value={method.value}
+                            className="rounded data-[state=active]:dark:bg-primary data-[state=active]:dark:text-black cursor-pointer"
+                        >
+                            {method.label}
                         </TabsTrigger>
                     ))}
                 </TabsList>
