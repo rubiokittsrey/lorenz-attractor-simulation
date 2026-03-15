@@ -9,6 +9,7 @@ A real-time 3D visualization of the Lorenz attractor built with React, Next.js, 
 - Dynamic trail rendering up to 30,000 points
 - Multiple color gradient schemes
 - Grid and axes helpers
+- Euler's method / RKF45 integration method options
 
 ## Getting Started
 
