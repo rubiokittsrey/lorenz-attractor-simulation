@@ -11,7 +11,7 @@ export default function Parameters() {
 
     return (
         <div className="flex flex-col space-y-8 p-8">
-            <div className="flex justify-between">
+            <div className="flex flex-col space-y-8 sm:space-y-0 sm:flex-row justify-between">
                 <h3 className="text-title flex items-center">
                     <Settings2 className="mr-2 size-5" /> Parameters
                 </h3>
