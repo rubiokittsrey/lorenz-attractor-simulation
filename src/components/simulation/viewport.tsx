@@ -26,7 +26,7 @@ export default function SimulationViewPort({
         <div
             {...props}
             className={cn(
-                'h-full dark:bg-zinc-950 bg-neutral-600 relative overflow-hidden',
+                'h-full bg-zinc-950 relative overflow-hidden',
                 className
             )}
         >

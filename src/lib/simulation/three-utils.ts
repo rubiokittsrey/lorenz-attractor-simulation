@@ -6,9 +6,11 @@ export function createRenderer(width: number, height: number): THREE.WebGLRender
     const renderer = new THREE.WebGLRenderer({
         antialias: true,
         preserveDrawingBuffer: true,
+        alpha: true,
     });
     renderer.setSize(width, height);
     renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0x000000, 0);
     return renderer;
 }
 
@@ -54,7 +56,6 @@ export function markGeometryForUpdate(line1: THREE.Line, line2: THREE.Line): voi
 
 export function createScene(): THREE.Scene {
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0a0b);
     return scene;
 }
 
