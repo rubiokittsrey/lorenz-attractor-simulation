@@ -53,7 +53,15 @@ export function SimulationThreeCanvas() {
     // store subs
     const { maxPoints, integrationMethod, pointerIdle, autoHideUI, hidePanel } = useLorenzStore();
 
-    const { handleMouseDown, handleMouseMove, handleMouseUp, handleWheel } = useCameraControls();
+    const {
+        handleMouseDown,
+        handleMouseMove,
+        handleMouseUp,
+        handleWheel,
+        handleTouchStart,
+        handleTouchMove,
+        handleTouchEnd,
+    } = useCameraControls();
     const getFps = createFpsCounter();
 
     // handles maxPoint and integration method updates
@@ -220,6 +228,10 @@ export function SimulationThreeCanvas() {
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
             onWheel={handleWheel}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={handleTouchEnd}
         />
     );
 }

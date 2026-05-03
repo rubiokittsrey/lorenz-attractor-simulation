@@ -115,7 +115,7 @@ export type LorenzStore = LorenzSimulationStates &
 
 export const useLorenzStore = create<LorenzStore>((set, get) => ({
     params: paramPresets.classic,
-    isRunning: false,
+    isRunning: true,
     currentPoint: initialPoint,
     pointsData: [],
 
