@@ -8,7 +8,7 @@ export default function About() {
     return (
         <div className="flex flex-col space-y-8 p-8">
             <div className="flex justify-between">
-                <h3 className="text-lg flex items-center">
+                <h3 className="text-title flex items-center">
                     <CircleQuestionMarkIcon className="mr-2 size-5" /> About
                 </h3>
             </div>
@@ -75,7 +75,7 @@ export function LorenzAttractorTab() {
                 chaotic behavior.
             </p>
 
-            <div className="bg-muted p-4 rounded-md font-mono text-sm space-y-1">
+            <div className="bg-muted p-4 rounded-md font-mono text-body space-y-1">
                 <div>dx/dt = σ(y - x)</div>
                 <div>dy/dt = x(ρ - z) - y</div>
                 <div>dz/dt = xy - βz</div>
@@ -127,7 +127,7 @@ export function GuideTab() {
 
             <div>
                 <p className="font-semibold mb-2">Tips:</p>
-                <ul className="list-disc list-inside space-y-1 ml-2 text-sm">
+                <ul className="list-disc list-inside space-y-1 ml-2 text-body">
                     <li>Start with σ=10, ρ=28, β=8/3</li>
                     <li>Change ρ (20–30) to explore different regimes</li>
                     <li>Rotate the camera to see the full 3D structure</li>

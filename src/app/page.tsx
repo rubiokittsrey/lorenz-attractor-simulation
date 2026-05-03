@@ -24,7 +24,7 @@ export default function LorenzAttractor3d() {
             <SimulationViewPort className={hidePanel ? 'col-span-12' : 'col-span-8'}>
                 <SimulationThreeCanvas />
                 <div className={cn(autoHide && 'hidden')}>
-                    <SiteTitle className="absolute top-8 left-8" />
+                    {/* <SiteTitle className="absolute top-8 left-8" /> */}
                     <GizmoToggles className="absolute top-8 right-8" />
                     <SimulationControls className="absolute bottom-8 right-8" />
                     <StatsForNerds className="absolute bottom-8 left-8" />

@@ -31,7 +31,7 @@ export function XYZPoints() {
                     key={p}
                     className="rounded bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 border"
                 >
-                    <h4 className="text-sm select-none">{`${p.toUpperCase()}: ${currentPoint[p as keyof typeof currentPoint]}`}</h4>
+                    <h4 className="text-body select-none">{`${p.toUpperCase()}: ${currentPoint[p as keyof typeof currentPoint]}`}</h4>
                 </div>
             ))}
         </div>
@@ -42,7 +42,7 @@ export function PointsDataLength() {
     const { pointsData } = useLorenzStore();
     return (
         <div className="rounded w-fit bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 border">
-            <h4 className="text-sm select-none">{`Points: ${pointsData.length}`}</h4>
+            <h4 className="text-body select-none">{`Points: ${pointsData.length}`}</h4>
         </div>
     );
 }
@@ -51,7 +51,7 @@ export function FPSDisplay() {
     const { fps } = useLorenzStore();
     return (
         <div className="rounded w-fit bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 border">
-            <h4 className="text-sm select-none">{`FPS: ${fps}`}</h4>
+            <h4 className="text-body select-none">{`FPS: ${fps}`}</h4>
         </div>
     );
 }
@@ -60,7 +60,7 @@ export function RenderSpeed() {
     const { speed } = useLorenzStore();
     return (
         <div className="rounded w-fit bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 border">
-            <h4 className="text-sm select-none">{`Render Speed: ${speed} step(s) per frame`}</h4>
+            <h4 className="text-body select-none">{`Render Speed: ${speed} step(s) per frame`}</h4>
         </div>
     );
 }
@@ -72,7 +72,7 @@ export function CameraInformation() {
 
     return (
         <div className="flex flex-col space-y-3 bg-input/50 p-3 border rounded pointer-events-auto">
-            <h4 className="text-sm select-none">Camera Information</h4>
+            <h4 className="text-body select-none">Camera Information</h4>
             <CameraPosition />
             <CameraAngles />
             <CameraPan />
@@ -85,7 +85,7 @@ export function CameraAngles() {
     const { cameraAngles } = useLorenzStore();
     return (
         <div className="rounded w-fit bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 border">
-            <h4 className="text-sm select-none">{`Angles: ${cameraAngles.phi} ${cameraAngles.theta}`}</h4>
+            <h4 className="text-body select-none">{`Angles: ${cameraAngles.phi} ${cameraAngles.theta}`}</h4>
         </div>
     );
 }
@@ -94,7 +94,7 @@ export function CameraPosition() {
     const { cameraPosition } = useLorenzStore();
     return (
         <div className="rounded w-fit bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 border">
-            <h4 className="text-sm select-none">{`Position (x,y,z): ${cameraPosition.x}, ${cameraPosition.y}, ${cameraPosition.z}`}</h4>
+            <h4 className="text-body select-none">{`Position (x,y,z): ${cameraPosition.x}, ${cameraPosition.y}, ${cameraPosition.z}`}</h4>
         </div>
     );
 }
@@ -104,7 +104,7 @@ export function CameraPan() {
 
     return (
         <div className="rounded w-fit bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 border">
-            <h4 className="text-sm select-none">{`Pan (x,y,z): ${cameraPan.x}, ${cameraPan.y}, ${cameraPan.z}`}</h4>
+            <h4 className="text-body select-none">{`Pan (x,y,z): ${cameraPan.x}, ${cameraPan.y}, ${cameraPan.z}`}</h4>
         </div>
     );
 }
@@ -114,7 +114,7 @@ export function CameraRoll() {
 
     return (
         <div className="rounded w-fit bg-neutral-200 dark:bg-neutral-800 px-2 py-0.5 border">
-            <h4 className="text-sm select-none">{`Roll: ${cameraRoll}`}</h4>
+            <h4 className="text-body select-none">{`Roll: ${cameraRoll}`}</h4>
         </div>
     );
 }

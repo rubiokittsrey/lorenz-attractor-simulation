@@ -10,7 +10,7 @@ export default function SiteTitle({ className, ...props }: React.HTMLAttributes<
             )}
             {...props}
         >
-            <h4 className="text-sm select-none">Lorenz Attractor Simulation</h4>
+            <h4 className="text-body select-none">Lorenz Attractor Simulation</h4>
         </div>
     );
 }

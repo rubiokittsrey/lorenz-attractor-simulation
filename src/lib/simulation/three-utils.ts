@@ -45,6 +45,11 @@ export function markGeometryForUpdate(line1: THREE.Line, line2: THREE.Line): voi
     line1.geometry.attributes.color.needsUpdate = true;
     line2.geometry.attributes.position.needsUpdate = true;
     line2.geometry.attributes.color.needsUpdate = true;
+
+    // recompute so frustum culling reflects the current trajectory extent,
+    // not the bounding sphere from when the buffer was mostly zeros
+    line1.geometry.computeBoundingSphere();
+    line2.geometry.computeBoundingSphere();
 }
 
 export function createScene(): THREE.Scene {

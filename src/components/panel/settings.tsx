@@ -12,7 +12,7 @@ export default function Preferences() {
     return (
         <div className="flex flex-col space-y-8 p-8">
             <div className="flex justify-between">
-                <h3 className="text-lg flex items-center">
+                <h3 className="text-title flex items-center">
                     <Settings className="mr-2 size-5" /> Preferences
                 </h3>
             </div>
@@ -97,7 +97,7 @@ export function MaxPoints() {
                         <CircleQuestionMarkIcon className="size-4" />
                     </HoverCardTrigger>
                     <HoverCardContent className="font-sans flex flex-col space-y-2">
-                        <p className="text-sm">Maximum Rendered Points</p>
+                        <p className="text-body">Maximum Rendered Points</p>
                         <p className="text-xs opacity-50">
                             This value controls how many points are rendered in the simulation at
                             once. Increasing it may impact performance.
@@ -146,7 +146,7 @@ export function IntegrationMethodSelector() {
                         <CircleQuestionMarkIcon className="size-4" />
                     </HoverCardTrigger>
                     <HoverCardContent className="font-sans flex flex-col space-y-2">
-                        <p className="text-sm">Numerical Integration Method</p>
+                        <p className="text-body">Numerical Integration Method</p>
                         <p className="text-xs opacity-50">
                             Euler&apos;s method is fast but less accurate. RKF45
                             (Runge-Kutta-Fehlberg) is more accurate at the cost of additional

@@ -11,7 +11,7 @@ export default function Visualization() {
     return (
         <div className="flex flex-col space-y-8 p-8">
             <div className="flex justify-between">
-                <h3 className="text-lg flex items-center">
+                <h3 className="text-title flex items-center">
                     <PaletteIcon className="mr-2 size-5" /> Visualization
                 </h3>
             </div>

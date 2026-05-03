@@ -6,8 +6,22 @@
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-jetbrains-mono);
+    --font-sans: var(--font-roboto);
+    --font-mono: var(--font-roboto-mono);
+
+    /* fluid typography */
+    --text-xxs: var(--text-size-xxs);
+    --text-xs: var(--text-size-xs);
+    --text-sm: var(--text-size-sm);
+    --text-base: var(--text-size-base);
+    --text-lg: var(--text-size-lg);
+    --text-xl: var(--text-size-xl);
+    --text-2xl: var(--text-size-2xl);
+    --text-3xl: var(--text-size-3xl);
+
+    /* role-based typography utility classes */
+    --text-body: var(--text-size-sm);
+    --text-title: var(--text-size-lg);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -47,6 +61,16 @@
 }
 
 :root {
+    /* fluid typography — scales between 320px and 1280px viewports */
+    --text-size-xxs: clamp(0.625rem, 0.575rem + 0.25vw, 0.75rem);
+    --text-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --text-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+    --text-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+    --text-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.375rem);
+    --text-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.625rem);
+    --text-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    --text-size-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.625rem);
+
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);

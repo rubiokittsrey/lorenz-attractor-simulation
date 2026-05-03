@@ -1,20 +1,15 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, JetBrains_Mono } from 'next/font/google';
+import { Roboto, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from 'next-themes';
 
-const geistSans = Geist({
-    variable: '--font-geist-sans',
+const roboto = Roboto({
+    variable: '--font-roboto',
     subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-    variable: '--font-jetbrains-mono',
+const robotoMono = Roboto_Mono({
+    variable: '--font-roboto-mono',
     subsets: ['latin'],
 });
 
@@ -30,9 +25,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${geistSans.variable} ${jetbrainsMono.variable} antialiased`}>
+            <body className={`${roboto.variable} ${robotoMono.variable} antialiased font-sans`}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                    <main className="text-sm bg-neutral-100 dark:bg-neutral-800 w-full h-screen overflow-hidden font-mono">
+                    <main className="text-body bg-neutral-100 dark:bg-neutral-800 w-full h-screen overflow-hidden">
                         {children}
                     </main>
                 </ThemeProvider>
